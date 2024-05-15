@@ -1,7 +1,7 @@
 import { match } from "assert";
 import { prisma } from "./index";
 import { JsonObject } from "@prisma/client/runtime/library";
-import math, { matrix } from "mathjs";
+import math, { Matrix, matrix } from "mathjs";
 
 export async function getOPRs(tournamentName: string) {
     const matches = await prisma.match.findMany({
@@ -10,10 +10,14 @@ export async function getOPRs(tournamentName: string) {
         }
     })
 
-    // TODO: Fix this to create an array of all team names
-    const numberOfTeams = await prisma.teamPerformance.findUnique({
-
+    const numberOfTeams = await prisma.teamPerformance.findMany({
+        where: {
+            match: {tournament: {title: tournamentName}}
+        },
+        distinct: ['teamName'] // TODO: Does this work?
     })
+
+    const teamNames = numberOfTeams.map(teamPerformance => teamPerformance.teamName);
 
     // TODO: Require the alliance color as part of the schema
 
@@ -57,10 +61,35 @@ export async function getOPRs(tournamentName: string) {
     }
 
     // Creates a binary array the length of the 2 * matches and width of the number of teams,
-    let teamPresentMatrix = math.zeros(matches.length, numberOfTeams.length);
+    let teamPresentMatrix = math.zeros(2 * matches.length, numberOfTeams.length) as Matrix;
+    let scoresMatrix = math.zeros(2* matches.length, 1) as Matrix; // TODO: make sure the array is oriented correctly
 
-    // TODO: Create an array to add ones to the array if present in the match
+    // Red is even numbers, blue is odd
+    for (let i = 0; i < matches.length; i++) {
+        const teamPerformances = await prisma.teamPerformance.findMany({
+            where: {
+                match: {
+                    matchNumber: matches[i].matchNumber
+                }
+            }
+        });
+        for (let j = 0; j < teamPerformances.length; j++) {
+            for (let k = 0; k < teamNames.length; k++) {
+                if (teamNames[k] === teamPerformances[j].teamName) {
+                    // Find something to get team name from index
+                    let color = (teamPerformances[j].jsonScoutInput as JsonObject)["allianceColor"];
+                    if (color == "RED") {
+                        teamPresentMatrix.set([2 * i, k], 1);
+                        scoresMatrix.set([2 * i], (teamPerformances[j].jsonScoutInput as JsonObject)["score"]);
+                    }
+                    else if (color == "BLUE") {
+                        teamPresentMatrix.set([2 * i + 1, k], 1);
+                        scoresMatrix.set([2 * i + 1], (teamPerformances[j].jsonScoutInput as JsonObject)["score"]);
+                    }
+                }
+            }
+        }
+    }
 
-    // TODO: Create a matrix to add the red alliance and blue alliance scores to the match
-
+    let result = math.dotMultiply(math.inv(math.dotMultiply(math.transpose(scoresMatrix), teamPresentMatrix)), teamPresentMatrix);
 }

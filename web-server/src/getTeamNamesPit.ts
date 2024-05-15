@@ -10,7 +10,8 @@ export async function getTeamNamesPit(tournamentName: string) {
         }
     });
 
-    const teamNames = pitScouts.map(pitScout => pitScout.teamName)
+    const teamNames = pitScouts.map(pitScout => pitScout.teamName);
+
     
     return teamNames
 }
