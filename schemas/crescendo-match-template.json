@@ -28,22 +28,6 @@
 
     {
 
-        "title": "Scout Name",
-
-        "ui": {
-
-            "type": "text",
-
-            "maxLength": 20
-
-        },
-
-        "dataType": "string"
-
-    },
-
-    {
-
         "title": "Team Name",
 
         "ui": {
@@ -69,7 +53,7 @@
 
     {
 
-        "title": "Alliance",
+        "title": "Alliance Color",
 
         "ui": {
 
@@ -77,43 +61,15 @@
 
             "options": [
 
-                "Red",
+                "RED",
 
-                "Blue"
+                "BLUE"
 
             ]
 
         },
 
         "dataType": "1bit"
-
-    },
-
-    {
-
-        "title": "Start Lane",
-
-        "ui": {
-
-            "type": "radio",
-
-            "options": [
-
-                "Source",
-
-                "Source Subwoofer",
-
-                "Center Subwoofer",
-
-                "Amp Subwoofer",
-
-                "Amp"
-
-            ]
-
-        },
-
-        "dataType": "4bit"
 
     },
 
@@ -131,253 +87,7 @@
 
     {
 
-        "title": "Taxied",
-
-        "ui": {
-
-            "type": "toggle"
-
-        },
-
-        "dataType": "boolean"
-
-    },
-
-    {
-
-        "title": "Auto Speaker Notes Scored",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "4bit"
-
-    },
-
-    {
-
-        "title": "Auto Speaker Notes Missed",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "4bit"
-
-    },
-
-    {
-
-        "title": "Teleop",
-
-        "ui": {
-
-            "type": "header"
-
-        }
-
-    },
-
-    {
-        "title": "Notes fed",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "6bit"
-    },
-
-    {
-
-        "title": "Teleop Speaker Notes Scored",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "6bit"
-
-    },
-
-    {
-
-        "title": "Teleop Speaker Notes Missed",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "6bit"
-
-    },
-
-    {
-
-        "title": "Teleop Amp Notes Scored",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "6bit"
-
-    },
-
-    {
-
-        "title": "Teleop Amp Notes Missed",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "6bit"
-
-    },
-
-    {
-
-        "title": "Speaker Scoring Positions",
-
-        "ui": {
-
-            "type": "dropdown",
-
-            "options": [
-
-                "None",
-
-                "Center Only",
-
-                "Sides Only",
-
-                "Center and Sides",
-
-                "Anywhere",
-
-                "Other"
-
-            ]
-
-        },
-
-        "dataType": "4bit"
-
-    },
-
-    {
-
-        "title": "Endgame",
-
-        "ui": {
-
-            "type": "header"
-
-        }
-
-    },
-
-    {
-
-        "title": "Hang Successful",
-
-        "ui": {
-
-            "type": "toggle"
-
-        },
-
-        "dataType": "boolean"
-
-    },
-
-    {
-
-        "title": "Achieved Harmony",
-
-        "ui": {
-
-            "type": "toggle"
-
-        },
-
-        "dataType": "boolean"
-
-    },
-
-    {
-
-        "title": "Human Player Shot Made",
-
-        "ui": {
-
-            "type": "toggle"
-
-        },
-
-        "dataType": "boolean"
-
-    },
-
-    {
-
-        "title": "Postgame",
-
-        "ui": {
-
-            "type": "header"
-
-        }
-
-    },
-
-    {
-
-        "title": "Won Match",
-
-        "ui": {
-
-            "type": "toggle"
-
-        },
-
-        "dataType": "boolean"
-
-    },
-
-    {
-
-        "title": "Ranking Points Earned",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "4bit"
-
-    },
-
-    {
-
-        "title": "Team's Alliance Points",
+        "title": "Score",
 
         "ui": {
 
@@ -400,64 +110,6 @@
         },
 
         "dataType": "8bit"
-
-    },
-
-    {
-
-        "title": "Penalties Points By Alliance",
-
-        "ui": {
-
-            "type": "number"
-
-        },
-
-        "dataType": "6bit"
-
-    },
-
-    {
-
-        "title": "Broke Down",
-
-        "ui": {
-
-            "type": "toggle"
-
-        },
-
-        "dataType": "boolean"
-
-    },
-
-    {
-
-        "title": "Tipped",
-
-        "ui": {
-
-            "type": "toggle"
-
-        },
-
-        "dataType": "boolean"
-
-    },
-
-    {
-
-        "title": "Comments",
-
-        "ui": {
-
-            "type": "text",
-
-            "maxLength": 100
-
-        },
-
-        "dataType": "string"
 
     }
 
