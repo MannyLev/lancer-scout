@@ -24,7 +24,7 @@
             
             ]
         },
-        "dataType": "8bit"
+        "dataType": "4bit"
     },
     {
         "title": "Drivetrain Style",
