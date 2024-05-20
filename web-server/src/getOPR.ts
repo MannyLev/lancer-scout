@@ -10,14 +10,12 @@ export async function getOPRs(tournamentName: string) {
         }
     })
 
-    const numberOfTeams = await prisma.teamPerformance.findMany({
+    const teamNames = (await prisma.teamPerformance.findMany({
         where: {
             match: {tournament: {title: tournamentName}}
         },
         distinct: ['teamName'] // TODO: Does this work?
-    })
-
-    const teamNames = numberOfTeams.map(teamPerformance => teamPerformance.teamName);
+    })).map(teamPerformance => teamPerformance.teamName)
 
     // TODO: Require the alliance color as part of the schema
 
@@ -32,12 +30,13 @@ export async function getOPRs(tournamentName: string) {
                     matchNumber: matches[j].matchNumber
                 },
                 jsonScoutInput: {
-                    path: ['Alliance'],
-                    equals: 'Red',
+                    path: ['allianceColor'],
+                    equals: 'RED',
                 },
             }
         
         });
+        // TODO: make sure matchTeamPerformance[0] exists (check length > 0)
         redMatchScores[j] = (matchTeamPerformances[0].jsonScoutInput as JsonObject)["Score"] as number;
     }
 
@@ -51,8 +50,8 @@ export async function getOPRs(tournamentName: string) {
                     matchNumber: matches[j].matchNumber
                 },
                 jsonScoutInput: {
-                    path: ['Alliance'],
-                    equals: 'Blue',
+                    path: ['allianceColor'],
+                    equals: 'BLUE',
                 },
             }
         
@@ -61,30 +60,30 @@ export async function getOPRs(tournamentName: string) {
     }
 
     // Creates a binary array the length of the 2 * matches and width of the number of teams,
-    let teamPresentMatrix = math.zeros(2 * matches.length, numberOfTeams.length) as Matrix;
+    let teamPresentMatrix = math.zeros(2 * matches.length, teamNames.length) as Matrix;
     let scoresMatrix = math.zeros(2* matches.length, 1) as Matrix; // TODO: make sure the array is oriented correctly
 
     // Red is even numbers, blue is odd
     for (let i = 0; i < matches.length; i++) {
-        const teamPerformances = await prisma.teamPerformance.findMany({
+        const teamPerformancesInMatchI = await prisma.teamPerformance.findMany({
             where: {
                 match: {
                     matchNumber: matches[i].matchNumber
                 }
             }
         });
-        for (let j = 0; j < teamPerformances.length; j++) {
+        for (let j = 0; j < teamPerformancesInMatchI.length; j++) {
             for (let k = 0; k < teamNames.length; k++) {
-                if (teamNames[k] === teamPerformances[j].teamName) {
+                if (teamNames[k] === teamPerformancesInMatchI[j].teamName) {
                     // Find something to get team name from index
-                    let color = (teamPerformances[j].jsonScoutInput as JsonObject)["allianceColor"];
+                    let color = (teamPerformancesInMatchI[j].jsonScoutInput as JsonObject)["allianceColor"];
                     if (color == "RED") {
                         teamPresentMatrix.set([2 * i, k], 1);
-                        scoresMatrix.set([2 * i], (teamPerformances[j].jsonScoutInput as JsonObject)["score"]);
+                        scoresMatrix.set([2 * i], (teamPerformancesInMatchI[j].jsonScoutInput as JsonObject)["score"]);
                     }
                     else if (color == "BLUE") {
                         teamPresentMatrix.set([2 * i + 1, k], 1);
-                        scoresMatrix.set([2 * i + 1], (teamPerformances[j].jsonScoutInput as JsonObject)["score"]);
+                        scoresMatrix.set([2 * i + 1], (teamPerformancesInMatchI[j].jsonScoutInput as JsonObject)["score"]);
                     }
                 }
             }
