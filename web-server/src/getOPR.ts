@@ -90,5 +90,5 @@ export async function getOPRs(tournamentName: string) {
         }
     }
 
-    let result = math.dotMultiply(math.inv(math.dotMultiply(math.transpose(scoresMatrix), teamPresentMatrix)), teamPresentMatrix);
+    return math.dotMultiply(math.inv(math.dotMultiply(math.transpose(scoresMatrix), teamPresentMatrix)), teamPresentMatrix);
 }

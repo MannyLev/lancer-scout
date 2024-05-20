@@ -9,6 +9,7 @@ import UploadPage from "./pages/Upload"
 import DataPage from "./pages/Data"
 
 import Page from "./components/Page"
+import { getOPR } from "./scripts/api"
 
 const App = () => {
     const siteMap = {
@@ -20,6 +21,9 @@ const App = () => {
     }
 
     const router = createBrowserRouter(Object.entries(siteMap).map(([ path, element ]) => ({ path, element })))
+
+    getOPR(console.log)
+
 
     return (
         <Page>

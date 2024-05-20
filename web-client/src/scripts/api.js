@@ -262,6 +262,18 @@ const getMatch = (matchNumber, callback) => {
         .catch((err) => console.warn("Error occurred getting match", body, err))
 }
 
+const getOPR = (callback) => {
+    const tournamentName = localStorage.getItem("tournamentName") ?? ""
+
+    const body = {
+        tournamentName
+    }
+    
+    axios.post("http://localhost:3000/getOPR", body)
+        .then(({ data }) => callback(data.data))
+        .catch((err) => console.warn("Error occurred getting opr", body, err))
+}
+
 export {
     getTournaments,
     createNewTournament,
@@ -281,5 +293,6 @@ export {
     getTeamPerformance,
     getTeamOverviewAcrossMatchScouting,
     getTeamOverviewAcrossPitScouting,
-    getMatch
+    getMatch,
+    getOPR
 }
