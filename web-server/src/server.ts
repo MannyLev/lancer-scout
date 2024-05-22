@@ -23,6 +23,7 @@ import { getSchemaAverages } from "./getSchemaAverages";
 import { getTeamOverviewAcrossMatchScouting } from "./getTeamOverviewAcrossMatchScouting";
 import { getNumericMatchFields } from "./getNumericMatchFields";
 import getTournaments from "./getTournaments";
+import { getOPRs } from "./getOPR"
 import createNewTournament from "./createNewTournament";
 import { getSchemas } from "./getSchemas";
 import { putNewPitScout } from "./putNewPitScout";
@@ -460,6 +461,26 @@ app.post("/getTeamOverviewAcrossMatchScouting", validate(z.object({
 
     res.status(200).json({ data })
   } catch(e){
+    if (e instanceof Prisma.PrismaClientKnownRequestError) res.status(400).json({ e })
+  }
+})
+
+// Gets all of the OPRs
+app.post("/getOPRs", validate(z.object({
+  body: z.object({
+    tournamentName: z.string({
+      required_error: "Tournament name is required"
+    })
+    })
+  })), async (req, res) => {
+  try {
+    const json = req.body
+    console.log("Like a Stone by Audioslave and getting OPR", json)
+    const data = await getOPRs(json.tournamentName)
+
+    res.status(200).json({ data })
+  } catch(e){
+    console.log(e)
     if (e instanceof Prisma.PrismaClientKnownRequestError) res.status(400).json({ e })
   }
 })

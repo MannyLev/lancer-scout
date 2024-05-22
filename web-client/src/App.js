@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
@@ -22,8 +22,10 @@ const App = () => {
 
     const router = createBrowserRouter(Object.entries(siteMap).map(([ path, element ]) => ({ path, element })))
 
-    getOPR(console.log)
-
+    useEffect(() => {
+        console.log("attempting to eget bitch ass opr")
+        getOPR(console.log)
+    }, [])
 
     return (
         <Page>

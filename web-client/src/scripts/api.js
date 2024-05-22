@@ -269,7 +269,7 @@ const getOPR = (callback) => {
         tournamentName
     }
     
-    axios.post("http://localhost:3000/getOPR", body)
+    axios.post("http://localhost:3000/getOPRs", body)
         .then(({ data }) => callback(data.data))
         .catch((err) => console.warn("Error occurred getting opr", body, err))
 }
