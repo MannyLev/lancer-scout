@@ -127,6 +127,6 @@ export async function getOPRs(tournamentName: string) {
         pseudoInverse = math.multiply(math.matrix(math.pinv(teamPresentMatrix)), scoresMatrix);
     }
 
-    return { teamPresentMatrix, scoresMatrix, pseudoInverse };
+    return { pseudoInverse, teamNames };
 
 }
