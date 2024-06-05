@@ -5,7 +5,7 @@ const MultiSpiderChart = ({ chartWidth, chartHeight, maxHeight, style, data, axi
     const teamNames = Object.keys(data)
 
     if (Object.keys(axisLabels).length == 0) return (
-        <div style={{ ...style, width, height }} />
+        <div style={{ ...style, chartWidth, chartHeight }} />
     )
     
     const teamColors = {}

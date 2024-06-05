@@ -70,9 +70,9 @@ const TournamentPage = () => {
 
     return (
         <React.Fragment>
-            <h1>Welcome to the Tournament Page</h1>
+            <h1>Tournament Management</h1>
             <div className={"standard-content-container"}>
-                <div className={"tournament-info-container"}>
+                <div className={"info-container"}>
                     <label>
                         Current Tournament Name: <b>{ currentTournamentName || "[N/A]" }</b>
                     </label>
@@ -87,12 +87,12 @@ const TournamentPage = () => {
                     </label>
                     <div className={"button"} onClick={handleSelectExistingTournament}>Apply</div>
                 </div>
-                <div className={"tournament-info-container"}>
+                <div className={"info-container"}>
                     <label><b>Create New Tournament</b></label>
                     <hr style={{ width: "540px" }} />
-                    <label>Tournament Name: <input type={"text"} value={tournamentNameInput} onChange={(e) => setTournamentNameInput(e.target.value)} /></label>
-                    <label>Pit Schema URL: <input type={"text"} value={pitSchemaInput} onChange={(e) => setPitSchemaInput(e.target.value)} /></label>
-                    <label>Match Schema URL: <input type={"text"} value={matchSchemaInput} onChange={(e) => setMatchSchemaInput(e.target.value)} /></label>
+                    <label>Tournament Name: <input className={"tournament-input"} type={"text"} value={tournamentNameInput} onChange={(e) => setTournamentNameInput(e.target.value)} /></label>
+                    <label>Pit Schema URL: <input className={"tournament-input"} type={"text"} value={pitSchemaInput} onChange={(e) => setPitSchemaInput(e.target.value)} /></label>
+                    <label>Match Schema URL: <input className={"tournament-input"} type={"text"} value={matchSchemaInput} onChange={(e) => setMatchSchemaInput(e.target.value)} /></label>
                     <div className={"button"} onClick={handleCreateNewTournament}>Create</div>
                 </div>
             </div>

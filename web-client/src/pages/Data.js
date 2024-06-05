@@ -146,7 +146,12 @@ const DataPage = () => {
         )
     })
 
-    let ContentComponent = () => <h1>You should prolly add some tabs lol</h1>
+    let ContentComponent = () => (
+        <React.Fragment>
+            <h1>Data Analysis</h1>
+            <p>(Start By Adding Some Tabs)</p>
+        </React.Fragment>
+    )
 
     if(tabs.length != 0){
         switch(tabs[currentTabIndex].type){

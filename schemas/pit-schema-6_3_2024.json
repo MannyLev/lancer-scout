@@ -1,0 +1,114 @@
+[
+    {
+        "id": "optional-scoutName",
+        "title": "Scout Name",
+        "ui": {
+            "type": "text",
+            "maxLength": 50
+        },
+        "dataType": "string"
+    },
+    {
+        "id": "required-teamName",
+        "title": "Team Name",
+        "ui": {
+            "type": "dropdown",
+            "options": [
+                "RoboLancers",
+                "Lance-A-Lot",
+                "Orbit",
+                "Cheesy Poofs"
+            ]
+        },
+        "dataType": "2bit"
+    },
+    {
+        "id": "custom-0.6940331932242938",
+        "title": "Test Header",
+        "ui": {
+            "type": "header"
+        }
+    },
+    {
+        "id": "custom-0.37696622483889364",
+        "title": "Test Text",
+        "ui": {
+            "type": "text",
+            "maxLength": 48
+        },
+        "dataType": "string"
+    },
+    {
+        "id": "custom-0.609706437784802",
+        "title": "Test Number",
+        "ui": {
+            "type": "number"
+        },
+        "dataType": "2bit"
+    },
+    {
+        "id": "custom-0.5656902102128918",
+        "title": "Test Timer",
+        "ui": {
+            "type": "timer"
+        },
+        "dataType": "4bit"
+    },
+    {
+        "id": "custom-0.7819006167957208",
+        "title": "Test Slider",
+        "ui": {
+            "type": "slider"
+        },
+        "dataType": "4bit"
+    },
+    {
+        "id": "custom-0.06055919429368606",
+        "title": "Test Toggle",
+        "ui": {
+            "type": "toggle"
+        },
+        "dataType": "boolean"
+    },
+    {
+        "id": "custom-0.44745966286923244",
+        "title": "Test Radio",
+        "ui": {
+            "type": "radio",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E"
+            ]
+        },
+        "dataType": "4bit"
+    },
+    {
+        "id": "custom-0.46162295859661584",
+        "title": "Test Dropdown",
+        "ui": {
+            "type": "dropdown",
+            "options": [
+                "F",
+                "G",
+                "H",
+                "I",
+                "J",
+                "K",
+                "L"
+            ]
+        },
+        "dataType": "4bit"
+    },
+    {
+        "id": "custom-0.3489427043623188",
+        "title": "Test Text 2",
+        "ui": {
+            "type": "text",
+            "maxLength": 10
+        },
+        "dataType": "string"
+    }
+]

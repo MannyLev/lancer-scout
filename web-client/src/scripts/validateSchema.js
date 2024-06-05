@@ -73,9 +73,28 @@ const validateSchema = (schema, mode) => {
 
     if (mode == "Match") {
         if (!promptTitles.includes("Match Number")) return failureStatus("does not have the required prompt with title 'Match Number'", promptTitles)
-
         const matchNumberPrompt = schema.find(prompt => prompt.title == "Match Number")
         if (matchNumberPrompt.ui.type != "number") return failureStatus("has a ui type other than 'number' for the required prompt with title 'Match Number'", matchNumberPrompt)
+
+        if (!promptTitles.includes("Team Name")) return failureStatus("does not have the required prompt with title 'Team Name'", promptTitles)
+        const teamNamePrompt = schema.find(prompt => prompt.title == "Team Name")
+        if (teamNamePrompt.ui.type != "dropdown" && teamNamePrompt.ui.type != "radio") return failureStatus("has a ui type other than 'dropdown' or 'radio for the required prompt with title 'Team Name'", teamNamePrompt)
+
+        if (!promptTitles.includes("Alliance Color")) return failureStatus("does not have the required prompt with title 'Alliance Color'", promptTitles)
+        const allianceColorPrompt = schema.find(prompt => prompt.title == "Alliance Color")
+        if (allianceColorPrompt.ui.type != "radio") return failureStatus("has a ui type other than 'radio' for the required prompt with title 'Alliance Color'", allianceColorPrompt)
+
+        if (!promptTitles.includes("Alliance Score")) return failureStatus("does not have the required prompt with title 'Alliance Score'", promptTitles)
+        const allianceScorePrompt = schema.find(prompt => prompt.title == "Alliance Score")
+        if (allianceScorePrompt.ui.type != "number") return failureStatus("has a ui type other than 'number' for the required prompt with title 'Alliance Score'", allianceScorePrompt)
+
+        if (!promptTitles.includes("Opponent Score")) return failureStatus("does not have the required prompt with title 'Opponent Score'", promptTitles)
+        const opponentScorePrompt = schema.find(prompt => prompt.title == "Opponent Score")
+        if (opponentScorePrompt.ui.type != "number") return failureStatus("has a ui type other than 'number' for the required prompt with title 'Opponent Score'", opponentScorePrompt)
+    } else {
+        if (!promptTitles.includes("Team Name")) return failureStatus("does not have the required prompt with title 'Team Name'", promptTitles)
+        const teamNamePrompt = schema.find(prompt => prompt.title == "Team Name")
+        if (teamNamePrompt.ui.type != "dropdown" && teamNamePrompt.ui.type != "radio") return failureStatus("has a ui type other than 'dropdown' or 'radio for the required prompt with title 'Team Name'", teamNamePrompt)
     }
 
     return {

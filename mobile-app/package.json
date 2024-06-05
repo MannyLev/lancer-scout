@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "build-web": "npx expo export:web"
+    "build-web": "npx expo export:web && npm run IMPORTANT-NOTE-FOR-BUILD-WEB",
+    "IMPORTANT-NOTE-FOR-BUILD-WEB": "echo Make sure to replace/update sw.js and index.html otherwise caching will break. Sorry that this part didnt get automated, maybe use asset-manifest.json if youre looking to automate. -Matt"
   },
   "dependencies": {
     "@expo/metro-runtime": "^3.1.3",

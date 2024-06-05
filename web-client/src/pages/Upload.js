@@ -100,9 +100,9 @@ const UploadPage = () => {
 
     return (
         <React.Fragment>
-            <h1>Welcome to the Upload Page</h1>
-            <div style={{ textAlign: "center" }}>
-                <Webcam style={{ borderRadius: "10px" }} ref={webcamRef} mirrored />
+            <h1>Upload Scout Forms</h1>
+            <div className={"standard-content-container"} style={{ textAlign: "center" }}>
+                <Webcam style={{ marginTop: "20px", borderRadius: "10px" }} ref={webcamRef} mirrored />
                 <h2>Press Space to Scan and Upload</h2>
             </div>
         </React.Fragment>

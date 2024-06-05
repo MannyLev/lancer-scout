@@ -1,0 +1,154 @@
+[
+    {
+        "id": "optional-pregameHeader",
+        "title": "Pregame",
+        "ui": {
+            "type": "header"
+        }
+    },
+    {
+        "id": "required-matchNumber",
+        "title": "Match Number",
+        "ui": {
+            "type": "number"
+        },
+        "dataType": "8bit"
+    },
+    {
+        "id": "optional-scoutName",
+        "title": "Scout Name",
+        "ui": {
+            "type": "text",
+            "maxLength": 50
+        },
+        "dataType": "string"
+    },
+    {
+        "id": "required-teamName",
+        "title": "Team Name",
+        "ui": {
+            "type": "dropdown",
+            "options": [
+                "RoboLancers",
+                "Lance-A-Lot",
+                "Orbit",
+                "Cheesy Poofs"
+            ]
+        },
+        "dataType": "2bit"
+    },
+    {
+        "id": "required-allianceColor",
+        "title": "Alliance Color",
+        "ui": {
+            "type": "radio",
+            "options": [
+                "Red",
+                "Blue"
+            ]
+        },
+        "dataType": "1bit"
+    },
+    {
+        "id": "optional-postgameHeader",
+        "title": "Postgame",
+        "ui": {
+            "type": "header"
+        }
+    },
+    {
+        "id": "required-allianceScore",
+        "title": "Alliance Score",
+        "ui": {
+            "type": "number"
+        },
+        "dataType": "8bit"
+    },
+    {
+        "id": "required-opponentScore",
+        "title": "Opponent Score",
+        "ui": {
+            "type": "number"
+        },
+        "dataType": "8bit"
+    },
+    {
+        "id": "custom-0.3028328047472826",
+        "title": "Test Header",
+        "ui": {
+            "type": "header"
+        }
+    },
+    {
+        "id": "custom-0.8591717343403413",
+        "title": "Test Text",
+        "ui": {
+            "type": "text",
+            "maxLength": 10
+        },
+        "dataType": "string"
+    },
+    {
+        "id": "custom-0.9225411984939267",
+        "title": "Test Number",
+        "ui": {
+            "type": "number"
+        },
+        "dataType": "6bit"
+    },
+    {
+        "id": "custom-0.9657245580468112",
+        "title": "Test Timer",
+        "ui": {
+            "type": "timer"
+        },
+        "dataType": "6bit"
+    },
+    {
+        "id": "custom-0.7853127504210802",
+        "title": "Test Slider",
+        "ui": {
+            "type": "slider"
+        },
+        "dataType": "4bit"
+    },
+    {
+        "id": "custom-0.41661969785571973",
+        "title": "Test Toggle",
+        "ui": {
+            "type": "toggle"
+        },
+        "dataType": "boolean"
+    },
+    {
+        "id": "custom-0.9010949456199902",
+        "title": "Test Radio",
+        "ui": {
+            "type": "radio",
+            "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E"
+            ]
+        },
+        "dataType": "4bit"
+    },
+    {
+        "id": "custom-0.1976951056092089",
+        "title": "Test Dropdown",
+        "ui": {
+            "type": "dropdown",
+            "options": [
+                "F",
+                "G",
+                "H",
+                "I",
+                "J",
+                "K"
+            ]
+        },
+        "dataType": "4bit"
+    }
+]
